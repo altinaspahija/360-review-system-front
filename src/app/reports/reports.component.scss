@@ -1,0 +1,95 @@
+.reports-panel {
+    width: 95%;
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.reports-content {
+    text-align: center;
+
+    vertical-align: middle;
+
+    p {
+        display: block;
+        color: rgb(105, 105, 105);
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    span {
+        display: block;
+        float: right;
+        color: #002b5c;
+    }
+
+    margin: 20px;
+}
+
+.ranking-content {
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+    span {
+        margin-right: 10px;
+    }
+}
+
+.ranking-content:hover {
+    cursor: pointer;
+}
+
+.rounded-list ol {
+    counter-reset: li;
+    p::before {
+        color: #fff;
+        text-align: center;
+        vertical-align: middle;
+        font-size: small;
+    }
+}
+
+.rounded-list ol > li {
+    position: relative;
+    list-style: none;
+    background: #f6f6f6;
+    padding-left: 15px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    p {
+        color: rgb(105, 105, 105);
+        text-align: left;
+        padding: 10px;
+    }
+    span {
+        float: right;
+        color: #002b5c;
+    }
+}
+
+.rounded-list ol > li p:before {
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    left: -1.3em;
+    top: 50%;
+
+    background: #143c69;
+    height: 2em;
+    width: 2em;
+    margin-top: -1em;
+    line-height: 1.5em;
+    border: 0.3em solid #fff;
+    font-weight: normal;
+    border-radius: 2em;
+}
+
+.chart-wrapper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 70%;
+    margin: auto;
+}
+
+mat-divider {
+    opacity: 0.9;
+}

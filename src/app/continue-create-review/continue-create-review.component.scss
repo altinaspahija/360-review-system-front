@@ -1,0 +1,335 @@
+.continue-review {
+    margin-bottom: 30px;
+    padding-bottom: 50px;
+    margin-top: 20px;
+}
+
+.continue-review-background {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.continue-review-top {
+    margin-left: 70px;
+    margin-top: 30px;
+    margin-bottom: -30px;
+    p {
+        font-weight: 500;
+        font-size: 18px;
+    }
+}
+
+.paragraph-title {
+    text-align: center;
+    color: rgb(105, 105, 105);
+    margin-bottom: 20px;
+    font-size: 16px;
+    margin-top: 45px;
+}
+
+.row {
+    display: flex;
+    margin-left: -10px;
+    flex-direction: row;
+    padding: 20px;
+    margin-bottom: -20px;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.search__form_field {
+    width: 100%;
+}
+
+.search {
+    &__form {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        &_field {
+            width: 100% !important;
+            margin-bottom: -15px;
+            margin-right: 15px;
+        }
+    }
+}
+
+form {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+ng-select {
+    margin-bottom: 20px;
+    width: 98%;
+}
+
+.continue-review-button {
+    background-color: #002b5c;
+    color: white;
+    width: 30%;
+    margin: 0 auto;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 50px !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    .continue-review-button {
+        display: block;
+        width: 80%;
+    }
+}
+
+.continue-review-button:hover {
+    opacity: 0.9;
+}
+
+.continue-button {
+    font-size: 16px;
+    background-color: #002b5c;
+    color: white;
+    width: 10rem;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    float: right;
+    text-align: center;
+    margin-right: 50px;
+    margin-top: 30px;
+    vertical-align: middle;
+}
+
+.continue-button:hover {
+    opacity: 0.9;
+}
+
+i {
+    padding: 5px;
+    .fa fa-plus {
+        color: white;
+    }
+}
+
+.continue-review-button {
+    font-size: 16px;
+    background-color: #002b5c;
+    color: white;
+    width: 10rem;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 60px;
+    text-align: center;
+}
+
+.questions {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    width: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.question-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.predefined-questions {
+    padding: 20px;
+}
+
+.list-questions {
+    display: flex;
+    justify-content: space-between;
+}
+
+#p {
+    width: 90%;
+}
+
+#mat-checkbox {
+    width: 10% !important;
+    float: right;
+    color: #002b5c;
+}
+
+.categories-title {
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.list-note {
+    font-size: 11px;
+    text-align: left;
+    margin-top: 8px;
+}
+
+.main-list-note {
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.main-list-note-title {
+    font-weight: 600;
+    margin-top: 10px !important;
+}
+
+.add-question-button {
+    font-size: 14px;
+    background-color: #002b5c;
+    color: white;
+    width: 9rem;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.addedQuestion {
+    margin-top: 5px !important;
+    width: 100%;
+    display: flex;
+    margin-bottom: -30px !important;
+}
+
+.additional-class {
+    margin-bottom: 20px !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    opacity: 0.03 !important;
+    background-color: #002b5c !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #002b5c !important;
+}
+
+.continue-review-section {
+    margin-top: 30px;
+    p {
+        font-weight: 500;
+    }
+    h6 {
+        font-style: italic;
+        font-weight: 300;
+        font-size: 13px;
+    }
+}
+
+mat-form-field {
+    color: #143c69 !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: #143c69 !important;
+}
+
+::ng-deep .ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+    border-color: #143c69 !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px rgba(0, 126, 255, 0.1);
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+    color: #143c69 !important;
+}
+
+::ng-deep .mat-select-label {
+    color: #143c69 !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+    background-color: #143c69 !important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: #143c69 !important;
+}
+
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: #143c69 !important;
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #143c69 !important;
+}
+
+::ng-deep .mat-focus-indicator filter-button mat-raised-button mat-button-base {
+    margin-left: 0px;
+}
+
+::ng-deep ng-select {
+    .ng-dropdown-panel {
+        width: auto !important;
+        max-width: 550px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .filter-button-left {
+        margin-left: 0px !important;
+    }
+}
+
+::ng-deep .mat-label {
+    color: #143c69 !important;
+}
+
+ng-select {
+    margin-bottom: 20px;
+    width: 98%;
+}
+
+.filter-button {
+    color: white;
+    background-color: #143c69;
+    width: 180px;
+    padding: 0px;
+    margin-top: 30px;
+}
+
+.filter-button-left {
+    color: white;
+    background-color: #143c69;
+    width: 180px;
+    padding: 0px;
+    margin-top: 40px;
+    margin-left: 15px;
+}
+
+.search-clear-employee {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: -30px;
+}
+
+.create-review-name {
+    font-size: 14px;
+    margin-left: 60px;
+    mat-form-field {
+        width: 25rem;
+    }
+    display: flex;
+}
+
+.review-name-review-id {
+    color: white;
+    width: 0.1px;
+    opacity: 0;
+    margin: -50px !important;
+}

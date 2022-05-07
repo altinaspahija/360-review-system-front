@@ -1,0 +1,117 @@
+<div class="create-review">
+  <div class="create-review-top">
+    <p>Create your review form</p>
+    <h6>Use this area to build your review form</h6>
+  </div>
+
+  <div class="create-review-name">
+
+    <form [formGroup]="searchFormMain" (ngSubmit)="continueReviewMain()">
+
+      <div class="row">
+
+        <mat-form-field class="first-field" appearance="outline">
+          <input autocomplete="off" formControlName="reviewName" placeholder="Review Name *" matInput
+            [(ngModel)]="reviewName" (keyup)="onKeyUp($event)" required />
+          <div class="error" *ngIf="searchFormMain.get('reviewName')?.invalid&&submitted">Fill this field</div>
+        </mat-form-field>
+
+        <mat-form-field class="second-field">
+          <input placeholder="Status remains open until end date expires" formControlName="status"
+            [readonly]="isReadonly" matInput [value]="status" />
+        </mat-form-field>
+
+        <div>
+
+          <div class="row">
+
+            <mat-form-field class="calendar" appearance="outline">
+              <mat-label>Create Date</mat-label>
+              <input matInput [readonly]="isReadonly" formControlName="createdDate" [matDatepicker]="picker1"
+                (click)="picker1.open()" required autocomplete="off">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #picker1></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="calendar2" appearance="outline">
+              <mat-label>Expiration Date</mat-label>
+              <input matInput readonly formControlName="expirationDate" [matDatepicker]="picker2"
+                (click)="picker2.open()" required autocomplete="off">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #picker2></mat-datepicker>
+            </mat-form-field>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="middle-button">
+
+        <button [hidden]="!showMain" mat-raised-button class="continue-review-button" type="button"
+          (click)="continueReview1()">
+          Continue
+        </button>
+
+      </div>
+
+      <div *ngIf="show" class="continue-review-section">
+        <p class="paragraph-title">
+          Select employee to be reviewed:
+        </p>
+      </div>
+
+      <div *ngIf="show" class="row">
+
+        <mat-form-field class="creator">
+          <input formControlName="createdFrom" [value]="user_id" matInput />
+        </mat-form-field>
+
+        <mat-form-field class="search__form_field" appearance="outline">
+          <mat-label style="color: #143C69">Select department</mat-label>
+          <mat-select autocomplete="off" (selectionChange)="getSelected($event)" formControlName="department"
+            [(ngModel)]="department">
+            <mat-option *ngFor="let department of departmentArray" [value]="department">
+              {{department?.departmentTitle}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="search__form_field bottom" appearance="outline">
+          <mat-label style="color: #143C69">Select employee</mat-label>
+          <mat-select autocomplete="off" (selectionChange)="getSelected2($event)" formControlName="createdTo" required>
+            <mat-option #matOption (click)="click(matOption.selected)" *ngFor="let employee of employeeByDepartament"
+              [value]="employee.userId">
+              {{employee.name}} {{employee.surname}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="search-clear-employee">
+
+          <button (click)="clearSearch()" mat-raised-button type="button" class="filter-button">Clear Search</button>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+
+  <button [hidden]="!showFinal" mat-button class="continue-review-button-1" type="submit"
+    (click)="continueReviewMain()">
+    Continue
+  </button>
+
+  <div class="continue-review">
+
+    <div class="divider" [hidden]="hide">
+      <app-continue-create-review [inputFromParent]="reviewName">
+      </app-continue-create-review>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,5 @@
+<app-menu
+*ngIf="!(this.location.path() == '/login')">
+</app-menu>
+ 
+<app-login *ngIf="(this.location.path() == '/login')"></app-login>

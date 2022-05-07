@@ -1,0 +1,204 @@
+<div class="fill-review">
+  <p>Giving Review for <span>{{name}} {{surname}}</span></p>
+  <mat-divider></mat-divider>
+
+  <p class="review-name">Review Name: {{reviewName}}</p>
+
+  <mat-tab-group (selectedTabChange)="tabChanged($event);" #matgroup mat-align-tabs="center" class="review"
+    animationDuration="100ms">
+
+    <mat-tab label="Intro">
+
+      <div class="review-content">
+
+        <ul>
+          <li> There is not any time set for completing this review. </li>
+          <li> This review is anonymous. </li>
+          <li> Be honest in rating as your answer will help us a lot.</li>
+          <li> Questions are grouped in specific categories in each tab. </li>
+          <li> Rating on all questions is mandatory.</li>
+          <li> Slide star for rating. Stars will be filled automatically from your slide position set. </li>
+          <li> We appreciate your time taken for this review. </li>
+          <li> Following you can find for each rating, its corresponding definition.</li>
+        </ul>
+      </div>
+
+      <div class="review-rating-content">
+        <table class="goal-table" mat-table [dataSource]="dataSource">
+
+          <ng-container matColumnDef="value">
+            <th mat-header-cell *matHeaderCellDef>Rating Review Value</th>
+            <td mat-cell *matCellDef="let element">{{element.ratingReviewValue}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="definition">
+            <th mat-header-cell *matHeaderCellDef>Rating Review Definition</th>
+            <td mat-cell *matCellDef="let element">{{element.ratingReviewDefinition}}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+      </div>
+
+      <button class="fill-review-button" (click)='matgroup.selectedIndex = 1'>Start the review</button>
+
+    </mat-tab>
+
+    <mat-tab *ngFor="let category of categories" [ngSwitch]="category" label="{{category}}">
+
+      <div *ngSwitchCase="'Communication'" class="review-content">
+
+        <mat-horizontal-stepper #stepper [linear]="isLinear">
+
+          <mat-step *ngFor="let communication of communication; let i = index">
+
+            <div class="row align-items-center">
+              <form>
+                <ng-template matStepLabel>Question</ng-template>
+                <div class="star-rating">
+                </div>
+                <div class="ngb-rating-label">
+                  <p>{{communication.question}}</p>
+                  <p>{{sliderArray1[i]}} out of 5</p>
+                </div>
+              </form>
+
+              <div class="slider row align-items-center">
+
+                <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="5" aria-label="units"
+                  (change)="updateRatingValue1($event, i, communication.reviewQuestionId, communication.userId)"
+                  [(ngModel)]="sliderArray1[i]">
+                </mat-slider>
+
+              </div>
+
+            </div>
+
+          </mat-step>
+
+        </mat-horizontal-stepper>
+
+      </div>
+
+      <div *ngSwitchCase="'Interpersonal'" class="review-content">
+
+        <mat-horizontal-stepper #stepper [linear]="isLinear">
+
+          <mat-step *ngFor="let interpersonal of interpersonal; let i = index">
+
+            <div class="row align-items-center">
+              <form>
+                <ng-template matStepLabel>Question</ng-template>
+                <div class="star-rating">
+                </div>
+                <div class="ngb-rating-label">
+                  <p>{{interpersonal.question}}</p>
+                  <p>{{sliderArray2[i]}} out of 5</p>
+                </div>
+              </form>
+
+              <div class="slider row align-items-center">
+
+                <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="5" aria-label="units"
+                  (change)="updateRatingValue2($event, i, interpersonal.reviewQuestionId, interpersonal.userId)"
+                  [(ngModel)]="sliderArray2[i]">
+                </mat-slider>
+
+              </div>
+
+            </div>
+
+          </mat-step>
+
+        </mat-horizontal-stepper>
+
+      </div>
+
+      <div *ngSwitchCase="'Problem Solving'" class="review-content">
+
+        <mat-horizontal-stepper #stepper [linear]="isLinear">
+
+          <mat-step *ngFor="let problemSolving of problemSolving; let i = index">
+
+            <div class="row align-items-center">
+              <form>
+                <ng-template matStepLabel>Question</ng-template>
+                <div class="star-rating">
+                </div>
+                <div class="ngb-rating-label">
+                  <p>{{problemSolving.question}}</p>
+                  <p>{{sliderArray3[i]}} out of 5</p>
+                </div>
+              </form>
+
+              <div class="slider row align-items-center">
+
+                <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="5" aria-label="units"
+                  (change)="updateRatingValue3($event, i, problemSolving.reviewQuestionId, problemSolving.userId)"
+                  [(ngModel)]="sliderArray3[i]">
+                </mat-slider>
+
+              </div>
+
+            </div>
+
+          </mat-step>
+
+        </mat-horizontal-stepper>
+
+      </div>
+
+      <div *ngSwitchCase="'Leadership'" class="review-content">
+
+        <mat-horizontal-stepper #stepper [linear]="isLinear">
+
+          <mat-step *ngFor="let leadership of leadership; let i = index">
+
+            <div class="row align-items-center">
+              <form>
+                <ng-template matStepLabel>Question</ng-template>
+                <div class="star-rating">
+                </div>
+                <div class="ngb-rating-label">
+                  <p>{{leadership.question}}</p>
+                  <p>{{sliderArray4[i]}} out of 5</p>
+                </div>
+              </form>
+
+              <div class="slider row align-items-center">
+
+                <mat-slider thumbLabel tickInterval="1" step="1" min="0" max="5" aria-label="units"
+                  (change)="updateRatingValue4($event, i, leadership.reviewQuestionId, leadership.userId)"
+                  [(ngModel)]="sliderArray4[i]">
+                </mat-slider>
+
+              </div>
+
+            </div>
+
+          </mat-step>
+
+        </mat-horizontal-stepper>
+
+      </div>
+
+    </mat-tab>
+
+    <mat-tab label="Completion">
+
+      <div class="review-content-complete">
+        Are you done with answers?
+      </div>
+      <div class="review-content-complete-button">
+        Press button to send answers
+      </div>
+
+      <button class="fill-review-button" (click)='sendAnswer()'>Done</button>
+
+    </mat-tab>
+
+  </mat-tab-group>
+
+</div>

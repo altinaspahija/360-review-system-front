@@ -1,0 +1,93 @@
+<div class="reports-panel">
+
+  <div class="reports-content">
+
+    <div class="ranking-content" (click)="showDiv.current1 = 
+        !showDiv.current1;">
+      <p style="padding-top:20px; padding-bottom:20px">
+        Top {{nrOfItems}} Reviews Rating
+        <span>
+          <i class="fa" [ngClass]="{'fa-chevron-down': !showDiv.current1, 'fa-chevron-up': showDiv.current1}"></i>
+        </span>
+      </p>
+    </div>
+
+    <div class="toggle-content" *ngIf="showDiv.current1">
+      <div class="rounded-list">
+
+        <ol>
+          <li *ngFor='let topreviews of topAverageRatingReviews'>
+            <p>{{topreviews.reviewName}}<span>{{topreviews.answer}}</span></p>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="ranking-content" (click)="showDiv.current2 = 
+        !showDiv.current2">
+      <p style="padding-top:20px; padding-bottom:20px">
+        Top {{nrOfItems}} Recent Reviews Rating
+        <span>
+          <i class="fa" [ngClass]="{'fa-chevron-down': !showDiv.current2, 'fa-chevron-up': showDiv.current2}"></i>
+        </span>
+      </p>
+    </div>
+
+    <div class="toggle-content" *ngIf="showDiv.current2">
+      <div class="rounded-list">
+
+        <ol>
+          <li *ngFor='let toprecentreviews of topAverageRatingRecentReviews'>
+            <p>{{toprecentreviews.reviewName}}<span>{{toprecentreviews.answer}}</span></p>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+    <p>Average Review Rating During All Review Periods
+      <span>{{averageOverallRating | number :'1.0-1'}}</span>
+    </p>
+    <mat-divider></mat-divider>
+
+    <div class="chart-wrapper">
+      <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins"
+        [colors]="colors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+
+    <mat-divider></mat-divider>
+    <div class="respondents-content"
+      *ngFor='let numberOfRespondentsOfRecentReview of numberOfRespondentsOfRecentReview'>
+      <div class="invitations-content"
+        *ngFor='let numberOfInvitationsOfRecentReview of numberOfInvitationsOfRecentReview'>
+        <p>Number Of Respondents At Recent Review
+          <span>{{numberOfRespondentsOfRecentReview.reviewInvitationId}}
+            /
+            {{numberOfInvitationsOfRecentReview.reviewInvitationId}}
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+    <p>Number Of Respondents During All Review Periods
+      <span>{{overallNumberOfRespondents}}
+        /
+        {{overallNumberOfInvitations}}
+      </span>
+    </p>
+    <mat-divider></mat-divider>
+
+    <div class="chart-wrapper">
+      <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors"
+        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+
+  </div>
+</div>

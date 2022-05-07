@@ -1,0 +1,237 @@
+<div class="continue-review">
+  <div class="continue-review-top">
+    <p>Review Name: {{inputFromParent}}</p>
+  </div>
+
+  <div class="continue-review-background">
+
+    <mat-tab-group #matgroup (selectedTabChange)="tabChanged($event, 1)" mat-align-tabs="center" class="questions" animationDuration="100ms">
+
+      <mat-tab label="Pre-defined questions">
+
+        <p class="categories-title">CATEGORIES</p>
+
+        <mat-tab-group #tabValue (selectedTabChange)="tabChanged($event, 2)" mat-align-tabs="center" class="questions"
+          animationDuration="100ms">
+          <mat-tab *ngFor="let categories of categories" [ngSwitch]="categories.categoryDescription"
+            label="{{categories.categoryDescription}}">
+
+            <div *ngSwitchCase="'Communication'" class="predefined-questions">
+              <form [formGroup]="addQuestionForm1">
+                <p class="main-list-note-title">Questions</p>
+                <mat-form-field class="review-name-review-id">
+                  <input formControlName="reviewId" [value]="reviewId" matInput required />
+                </mat-form-field>
+                <ol>
+                  <li *ngFor="let categoryCommunicationOnTabChange of categoryCommunicationOnTabChange; let i=index"
+                    [attr.data-index]="i" class="main-list-note">
+                    <div class="list-questions">
+                      <div id="p">
+                        <p>{{categoryCommunicationOnTabChange.question}}</p>
+                      </div>
+                      <div id="mat-checkbox">
+                        <input type="checkbox" [(ngModel)]="categoryCommunicationOnTabChange.isChecked"
+                          [ngModelOptions]="{standalone: true}"
+                          (change)="onChange1(categoryCommunicationOnTabChange.isChecked, categoryCommunicationOnTabChange.questionId)"
+                          required />
+                      </div>
+                    </div>
+                    <mat-divider>
+                    </mat-divider>
+                  </li>
+                </ol>
+              </form>
+            </div>
+
+            <div *ngSwitchCase="'Interpersonal'" class="predefined-questions">
+              <form [formGroup]="addQuestionForm2">
+                <p class="main-list-note-title">Questions</p>
+                <mat-form-field class="review-name-review-id">
+                  <input formControlName="reviewId" [value]="reviewId" matInput required />
+                </mat-form-field>
+                <ol>
+                  <li *ngFor="let categoryInterpersonalOnTabChange of categoryInterpersonalOnTabChange; let i=index"
+                    [attr.data-index]="i" class="main-list-note">
+                    <div class="list-questions">
+                      <div id="p">
+                        <p>{{categoryInterpersonalOnTabChange.question}}</p>
+                      </div>
+                      <div id="mat-checkbox">
+                        <input type="checkbox" [(ngModel)]="categoryInterpersonalOnTabChange.isChecked"
+                          [ngModelOptions]="{standalone: true}"
+                          (change)="onChange2(categoryInterpersonalOnTabChange.isChecked, categoryInterpersonalOnTabChange.questionId)"
+                          required />
+                      </div>
+                    </div>
+                    <mat-divider>
+                    </mat-divider>
+                  </li>
+                </ol>
+              </form>
+            </div>
+
+            <div *ngSwitchCase="'Problem Solving'" class="predefined-questions">
+              <form [formGroup]="addQuestionForm3">
+                <p class="main-list-note-title">Questions</p>
+                <mat-form-field class="review-name-review-id">
+                  <input formControlName="reviewId" [value]="reviewId" matInput required />
+                </mat-form-field>
+                <ol>
+                  <li *ngFor="let categoryProblemSolvingOnTabChange of categoryProblemSolvingOnTabChange; let i=index"
+                    [attr.data-index]="i" class="main-list-note">
+                    <div class="list-questions">
+                      <div id="p">
+                        <p>{{categoryProblemSolvingOnTabChange.question}}</p>
+                      </div>
+                      <div id="mat-checkbox">
+                        <input type="checkbox" [(ngModel)]="categoryProblemSolvingOnTabChange.isChecked"
+                          [ngModelOptions]="{standalone: true}"
+                          (change)="onChange3(categoryProblemSolvingOnTabChange.isChecked, categoryProblemSolvingOnTabChange.questionId)"
+                          required />
+                      </div>
+                    </div>
+                    <mat-divider>
+                    </mat-divider>
+                  </li>
+                </ol>
+              </form>
+            </div>
+
+            <div *ngSwitchCase="'Leadership'" class="predefined-questions">
+              <form [formGroup]="addQuestionForm4">
+                <p class="main-list-note-title">Questions</p>
+                <mat-form-field class="review-name-review-id">
+                  <input formControlName="reviewId" [value]="reviewId" matInput required />
+                </mat-form-field>
+                <ol>
+                  <li *ngFor="let categoryLeadershipOnTabChange of categoryLeadershipOnTabChange; let i=index"
+                    [attr.data-index]="i" class="main-list-note">
+                    <div class="list-questions">
+                      <div id="p">
+                        <p>{{categoryLeadershipOnTabChange.question}}</p>
+                      </div>
+                      <div id="mat-checkbox">
+                        <input type="checkbox" [(ngModel)]="categoryLeadershipOnTabChange.isChecked"
+                          [ngModelOptions]="{standalone: true}"
+                          (change)="onChange4(categoryLeadershipOnTabChange.isChecked, categoryLeadershipOnTabChange.questionId)"
+                          required />
+                      </div>
+                    </div>
+                    <mat-divider>
+                    </mat-divider>
+                  </li>
+                </ol>
+              </form>
+            </div>
+
+          </mat-tab>
+
+        </mat-tab-group>
+
+      </mat-tab>
+
+      <mat-tab label="Add questions">
+
+        <div class="question-content">
+
+          <div class="row">
+            <form [formGroup]="createQuestionForm" (ngSubmit)="createQuestion()">
+
+              <mat-form-field class="search__form_field" appearance="outline">
+                <mat-label style="color: #143C69">Select category</mat-label>
+                <mat-select (selectionChange)="getSelected($event)" autocomplete="off" formControlName="categoryId"
+                  required>
+                  <mat-option *ngFor="let categories of categories" [value]="categories.categoryId">
+                    {{categories.categoryDescription}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field class="search__form_field additional-class">
+                <mat-label style="color: #143C69"> Question</mat-label>
+                <textarea formControlName="question" class="addedQuestion" autocomplete="off" matInput
+                  placeholder='Write the question...' required></textarea>
+              </mat-form-field>
+
+            </form>
+          </div>
+
+        </div>
+
+        <div class="question-content">
+          <div class="create-question">
+            <button mat-button class="add-question-button" type="submit" (click)="createQuestion()">
+              Add Question
+              <i class="fa fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
+
+  <div class="continue-review-2">
+
+    <button [hidden]="!hide" mat-button class="continue-button" (click)="continueReview()">
+      Continue
+    </button>
+
+  </div>
+
+  <div *ngIf="show" class="continue-review-section">
+    <p class="paragraph-title">
+      Select employee to give review:
+    </p>
+  </div>
+
+  <div *ngIf="show">
+
+    <form [formGroup]="getEmployeesForm">
+
+      <mat-form-field class="review-name-review-id">
+        <input formControlName="reviewId" [value]="reviewId" matInput />
+      </mat-form-field>
+
+      <div class="row" style="margin-top:-20px">
+        <mat-form-field class="search__form_field" appearance="outline">
+          <mat-label style="color: #143C69">Select department</mat-label>
+          <mat-select autocomplete="off" (selectionChange)="getSelected2($event)" formControlName="department"
+            [(ngModel)]="department">
+            <mat-option *ngFor="let department of departmentArray" [value]="department">
+              {{department?.departmentTitle}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="search__form_field bottom" appearance="outline">
+          <mat-label style="color: #143C69">Get employee</mat-label>
+          <mat-select autocomplete="off" formControlName="employeeId" [value]="employeeId" required multiple>
+            <mat-option #matOption (click)="click(employee, matOption.selected)"
+              *ngFor="let employee of employeeByDepartament" [value]="employee.userId">
+              {{employee.name}} {{employee.surname}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </form>
+
+    <div class="search-clear-employee">
+      <button (click)="clearSearch()" mat-raised-button class="filter-button">Clear Search</button>
+    </div>
+
+  </div>
+
+  <div class="continue-review-2">
+
+    <button [hidden]="hide2" mat-raised-button class="continue-button" (click)="sendEmailForReview();">
+      Send Review
+      <i class="fa fa-arrow-right"></i>
+    </button>
+
+  </div>
+
+</div>

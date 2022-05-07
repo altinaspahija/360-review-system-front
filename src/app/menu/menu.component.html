@@ -1,0 +1,91 @@
+<mat-toolbar class="mat-elevation-z8">
+
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+
+    <mat-sidenav #sidenav="matSidenav" class="home" mode="side" opened="true" class="mat-elevation-z8">
+
+        <img *ngIf="userDetails[0].profileImage" routerLink="/profile" routerLinkActive="active" class="avatar mat-elevation-z8"
+            src="{{userDetails[0].profileImage}}" />
+        <img *ngIf="!userDetails[0].profileImage" routerLink="/profile" routerLinkActive="active" class="avatar mat-elevation-z8"
+        src="assets/images/userIcon_blue.png" />
+        <h4 class="name">{{userDetails[0].name}} {{userDetails[0].surname}}</h4>
+        <p class="designation">{{userDetails[0].departmentTitle}}</p>
+        <p class="designation2">{{userDetails[0].positionTitle}}</p>
+        <button mat-button class="logout-menu-button" (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span> Logout </span>
+        </button>
+
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" routerLink="/home" routerLinkActive="active">
+            <mat-icon>home</mat-icon>
+            <span> Home</span>
+        </button>
+
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" routerLink="/employees" routerLinkActive="active">
+            <mat-icon>people</mat-icon>
+            <span> Employees</span>
+        </button>
+
+        <mat-divider *ngIf="(this.user_role==='EMPLOYEE')"></mat-divider>
+        <button *ngIf="(this.user_role==='EMPLOYEE')" mat-button class="menu-button" routerLink="/employeeReview"
+            routerLinkActive="active">
+            <mat-icon>rate_review</mat-icon>
+            <span> Reviews</span>
+        </button>
+
+        <mat-divider *ngIf="(this.user_role==='HR'||this.user_role==='MANAGER')"></mat-divider>
+        <button *ngIf="(this.user_role==='HR'||this.user_role==='MANAGER')" mat-button class="menu-button"
+            routerLink="/reviews" routerLinkActive="active">
+            <mat-icon>rate_review</mat-icon>
+            <span> Reviews</span>
+        </button>
+
+        <mat-divider *ngIf="(this.user_role==='EMPLOYEE')"></mat-divider>
+        <button *ngIf="(this.user_role==='EMPLOYEE')" mat-button class="menu-button" routerLink="/employeeReports"
+            routerLinkActive="active">
+            <mat-icon>note</mat-icon>
+            <span> Reports</span>
+        </button>
+
+        <mat-divider *ngIf="(this.user_role==='HR'||this.user_role==='MANAGER')"></mat-divider>
+        <button *ngIf="(this.user_role==='HR'||this.user_role==='MANAGER')" mat-button class="menu-button"
+            routerLink="/reports" routerLinkActive="active">
+            <mat-icon>note</mat-icon>
+            <span> Reports</span>
+        </button>
+
+        <mat-divider *ngIf="(this.user_role==='EMPLOYEE')"></mat-divider>
+        <button *ngIf="(this.user_role==='EMPLOYEE')" mat-button class="menu-button" routerLink="/employeeGoals"
+            routerLinkActive="active">
+            <mat-icon>compare_arrows</mat-icon>
+            <span>Goals</span>
+        </button>
+
+        <mat-divider *ngIf="(this.user_role==='HR'||this.user_role==='MANAGER')"></mat-divider>
+        <button *ngIf="(this.user_role==='HR'||this.user_role==='MANAGER')" mat-button class="menu-button"
+            routerLink="/comparison" routerLinkActive="active">
+            <mat-icon>compare_arrows</mat-icon>
+            <span> Skills </span>
+        </button>
+        <mat-divider></mat-divider>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="module-container">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap.scss';
+@import "~@ng-select/ng-select/themes/default.theme.css";  
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+.green-snackbar {
+    background: #2E8B57 !important;
+    color: white !important;
+    margin-left: auto !important; 
+    margin-right: auto !important;
+    margin-bottom: 1rem !important; 
+    padding: 10px !important;
+    max-width: 100% !important;
+    width: 60rem !important;
+    button {color: white !important}
+}
+
+.red-snackbar {
+    background: #B22222 !important;
+    color: white !important;
+    margin-left: auto !important; 
+    margin-right: auto !important; 
+    margin-bottom: 1rem !important; 
+    padding: 10px !important; 
+    max-width: 100% !important;
+    width: 60rem !important;
+    button {color: white !important}
+}
+
+::ng-deep .mat-snack-bar-container.green-snackbar  {
+    max-width: 100% !important;
+}
+
+
+::ng-deep .mat-simple-snackbar-action.green-snackbar  {
+    color:white !important;
+}
+
+::ng-deep .mat-simple-snackbar-action.red-snackbar  {
+   color:white !important;
+}
+

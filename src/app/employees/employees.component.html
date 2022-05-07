@@ -1,0 +1,132 @@
+<div class="add-employees-button">
+  <button *ngIf="(this.user_role==='HR')" mat-button class="menu-button" (click)="addEmployee()">
+    Add Employee
+    <i class="fa fa-plus"></i>
+  </button>
+</div>
+
+<div class="employees-content">
+  <div class="employees-top">
+    <p>People at Work</p>
+  </div>
+
+  <mat-divider></mat-divider>
+  <p class="employees-section">Direct Managers</p>
+
+  <div class="departament">
+    <div class="card-item" *ngFor="let manager of manager">
+      <div class="card">
+        <button (click)="employeeDetails(manager.userId)">
+          <div class="inside-card">
+            <div class="image-content image-container">
+              <img *ngIf="manager.profileImage" src="{{manager.profileImage}}" class="img-fluid rounded-circle" />
+              <img *ngIf="!manager.profileImage" src="assets/images/userIcon_blue.png"
+                class="img-fluid rounded-circle" />
+            </div>
+            <div class="text-container">
+              <h6 class="card-title">{{manager.name}} {{manager.surname}}</h6>
+              <p class="card-text">
+                {{manager.positionTitle}}
+              </p>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let department of department" [ngSwitch]="department.departmentTitle">
+    <mat-divider></mat-divider>
+    <p class="employees-section">{{department.departmentTitle}}</p>
+
+    <div *ngSwitchCase="'Software Development'" class="departament">
+      <div class="card-item" *ngFor="let softwareDev of softwareDev">
+        <div class="card">
+          <button (click)="employeeDetails(softwareDev.userId)">
+            <div class="inside-card">
+              <div class="image-content image-container">
+                <img *ngIf="softwareDev.profileImage" src="{{softwareDev.profileImage}}"
+                  class="img-fluid rounded-circle" />
+                <img *ngIf="!softwareDev.profileImage" src="assets/images/userIcon_blue.png"
+                  class="img-fluid rounded-circle" />
+              </div>
+              <div class="text-container">
+                <h6 class="card-title">{{softwareDev.name}} {{softwareDev.surname}}</h6>
+                <p class="card-text">
+                  {{softwareDev.positionTitle}}
+                </p>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'IT'" class="departament">
+      <div class="card-item" *ngFor="let it of it">
+        <div class="card">
+          <button (click)="employeeDetails(it.userId)">
+            <div class="inside-card">
+              <div class="image-content image-container">
+                <img *ngIf="it.profileImage" src="{{it.profileImage}}" class="img-fluid rounded-circle" />
+                <img *ngIf="!it.profileImage" src="assets/images/userIcon_blue.png" class="img-fluid rounded-circle" />
+              </div>
+              <div class="text-container">
+                <h6 class="card-title">{{it.name}} {{it.surname}}</h6>
+                <p class="card-text">
+                  {{it.positionTitle}}
+                </p>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'Cloud'" class="departament">
+      <div class="card-item" *ngFor="let cloud of cloud">
+        <div class="card">
+          <button (click)="employeeDetails(cloud.userId)">
+            <div class="inside-card">
+              <div class=" image-content image-container">
+                <img *ngIf="cloud.profileImage" src="{{cloud.profileImage}}" class="img-fluid rounded-circle" />
+                <img *ngIf="!cloud.profileImage" src="assets/images/userIcon_blue.png"
+                  class="img-fluid rounded-circle" />
+              </div>
+              <div class="text-container">
+                <h6 class="card-title">{{cloud.name}} {{cloud.surname}}</h6>
+                <p class="card-text">
+                  {{cloud.positionTitle}}
+                </p>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'Engineering'" class="departament">
+      <div class="card-item" *ngFor="let engineering of engineering">
+        <div class="card" style="margin-bottom:22px !important">
+          <button (click)="employeeDetails(engineering.userId)">
+            <div class="inside-card">
+              <div class="image-content image-container">
+                <img *ngIf="engineering.profileImage" src="{{engineering.profileImage}}"
+                  class="img-fluid rounded-circle" />
+                <img *ngIf="!engineering.profileImage" src="assets/images/userIcon_blue.png"
+                  class="img-fluid rounded-circle" />
+              </div>
+              <div class="text-container">
+                <h6 class="card-title">{{engineering.name}} {{engineering.surname}}</h6>
+                <p class="card-text">
+                  {{engineering.positionTitle}}
+                </p>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

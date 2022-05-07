@@ -1,0 +1,587 @@
+<div class="employees-panel">
+  <mat-tab-group mat-stretch-tabs class="employees" animationDuration="100ms">
+
+    <mat-tab label="Profile">
+      <div class="employees-content">
+
+        <div class="main-body">
+
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <div class="image-content image-container">
+                      <img *ngIf="user.profileImage" src="{{user.profileImage}}" class="img-fluid rounded-circle" />
+                      <img *ngIf="!user.profileImage" src="assets/images/userIcon_blue.png"
+                        class="img-fluid rounded-circle" />
+                    </div>
+                    <div class="mt-3">
+                      <h6>{{user.name}} {{user.surname}}</h6>
+                      <p class="text-secondary mb-1">{{user.departmentTitle}}</p>
+                      <p class="text-secondary mb-1">{{user.positionTitle}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+
+                    <div class="col-sm-3">
+                      <h6 class="employee-label">First Name</h6>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <h6 class="employee-info text-secondary">{{user.name}}</h6>
+                    </div>
+
+                  </div>
+
+                  <hr>
+
+                  <div class="row">
+
+                    <div class="col-sm-3">
+                      <h6 class="employee-label">Last Name</h6>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <h6 class="employee-info text-secondary">{{user.surname}}</h6>
+                    </div>
+
+                  </div>
+
+                  <hr>
+
+                  <div class="row">
+
+                    <div class="col-sm-3">
+                      <h6 class="employee-label">Phone Number</h6>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <h6 class="employee-info text-secondary">{{user.phoneNumber}}</h6>
+                    </div>
+
+                  </div>
+
+                  <hr>
+
+                  <div class="row">
+
+                    <div class="col-sm-3">
+                      <h6 class="employee-label">Start Date</h6>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <h6 class="employee-info text-secondary">{{user.startDate}}</h6>
+                    </div>
+
+                  </div>
+
+                  <hr>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Reviews">
+
+      <div class="employees-content first-review-table">
+        <p class="employees-content-p">Reviews created for {{user.name}} {{user.surname}}</p>
+
+        <table mat-table [dataSource]="dataSource1" [hidden]="!dataSource1.data.length" matSort #MatSort1="matSort">
+
+          <ng-container matColumnDef="reviewName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Review Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.reviewName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="createdDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Open Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdDate | date: 'dd/MM/yyyy'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="expirationDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Close Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.expirationDate | date: 'dd/MM/yyyy'}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+
+        </table>
+
+        <mat-paginator [hidden]="!dataSource1.data.length" #MatPaginator1="matPaginator"
+          [pageSizeOptions]="[5, 10, 15]"></mat-paginator>
+
+        <table class="no-item">
+          <tr *ngIf="!dataSource1.data.length">
+            <td style="text-align: center;" [attr.colspan]="displayedColumns1.length">
+              <h6>No Reviews Found!</h6>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+
+      <div class="employees-content">
+
+        <p class="employees-content-p2">Reviews given from {{user.name}} {{user.surname}}</p>
+
+        <table mat-table [dataSource]="dataSource2" [hidden]="!dataSource2.data.length" matSort #MatSort2="matSort">
+
+          <ng-container matColumnDef="reviewName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Review Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.reviewName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="createdDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Open Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdDate | date: 'dd/MM/yyyy'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="completedDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Completed Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.completedDate | date: 'dd/MM/yyyy'}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+
+        </table>
+
+        <mat-paginator [hidden]="!dataSource2.data.length" #MatPaginator2="matPaginator"
+          [pageSizeOptions]="[5, 10, 15]"></mat-paginator>
+
+        <table class="no-item">
+          <tr *ngIf="!dataSource2.data.length">
+            <td style="text-align: center;" [attr.colspan]="displayedColumns2.length">
+              <h6>No Reviews Found!</h6>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+
+      <div class="employees-content">
+
+        <p class="employees-content-p2">Reviews given to {{user.name}} {{user.surname}}</p>
+
+        <table mat-table [dataSource]="dataSource3" [hidden]="!dataSource3.data.length" matSort #MatSort3="matSort">
+
+          <ng-container matColumnDef="reviewName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Review Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.reviewName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} {{element.surname}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="createdDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Open Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdDate | date: 'dd/MM/yyyy'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="completedDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Completed Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.completedDate | date: 'dd/MM/yyyy'}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns3;"></tr>
+
+        </table>
+
+        <mat-paginator [hidden]="!dataSource3.data.length" #MatPaginator3="matPaginator"
+          [pageSizeOptions]="[5, 10, 15]"></mat-paginator>
+
+        <table class="no-item">
+          <tr *ngIf="!dataSource3.data.length">
+            <td style="text-align: center;" [attr.colspan]="displayedColumns3.length">
+              <h6>No Reviews Found!</h6>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+
+    </mat-tab>
+
+    <mat-tab label="Reports">
+
+      <div class="reports-content">
+        <p>Reviews created for {{user.name}} {{user.surname}}<span>{{countReviews}}</span></p>
+        <mat-divider></mat-divider>
+        <p>Reviews given from {{user.name}} {{user.surname}} <span>{{countReviewsBy}}</span></p>
+        <mat-divider></mat-divider>
+        <p>Reviews given to {{user.name}} {{user.surname}} <span>{{countReviewsTo}}</span></p>
+        <mat-divider></mat-divider>
+
+        <p *ngIf="averageRatingsBy.length > 0">Average Review Rating given from {{user.name}}
+          {{user.surname}}<span>{{overAllaverageRatingBy| number
+            :'1.0-1'}}</span></p>
+        <mat-divider *ngIf="averageRatingsBy.length > 0"></mat-divider>
+        <p *ngIf="averageRatingsBy.length > 0" class="extra-info">Average Reviews Ratings given from {{user.name}}
+          {{user.surname}}</p>
+        <div *ngIf="averageRatingsBy.length > 0" class="chart-wrapper">
+          <canvas baseChart [datasets]="lineChartData1" [labels]="lineChartLabels1" [options]="lineChartOptions"
+            [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+            [plugins]="lineChartPlugins" [colors]="colors">
+          </canvas>
+        </div>
+        <p *ngIf="averageReviewsRatingsByEmployee.length > 0" class="extra-info">Average Reviews Ratings given from
+          {{user.name}} {{user.surname}} during all reviews</p>
+        <div *ngIf="averageReviewsRatingsByEmployee.length > 0" class="chart-wrapper">
+          <canvas baseChart [datasets]="lineChartData3" [labels]="lineChartLabels3" [options]="lineChartOptions2"
+            [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+            [plugins]="lineChartPlugins" [colors]="colors2">
+          </canvas>
+        </div>
+
+        <mat-divider *ngIf="averageReviewsRatingsByEmployee.length > 0"></mat-divider>
+        <p *ngIf="averageRatingsTo.length > 0">Average Review Rating given to {{user.name}} {{user.surname}}
+          <span>{{overAllaverageRatingTo| number
+            :'1.0-1'}}</span></p>
+        <mat-divider *ngIf="averageRatingsTo.length > 0"></mat-divider>
+        <p *ngIf="averageRatingsTo.length > 0" class="extra-info">Average Reviews Ratings given to {{user.name}}
+          {{user.surname}}</p>
+        <div *ngIf="averageRatingsTo.length > 0" class="chart-wrapper">
+          <canvas baseChart [datasets]="lineChartData2" [labels]="lineChartLabels2" [options]="lineChartOptions"
+            [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+            [plugins]="lineChartPlugins" [colors]="colors">
+          </canvas>
+        </div>
+        <p *ngIf="averageReviewsRatingsToEmployee.length > 0" class="extra-info">Average Reviews Ratings given to
+          {{user.name}} {{user.surname}} during all review periods</p>
+        <div *ngIf="averageReviewsRatingsToEmployee.length > 0" class="chart-wrapper">
+          <canvas baseChart [datasets]="lineChartData4" [labels]="lineChartLabels4" [options]="lineChartOptions2"
+            [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+            [plugins]="lineChartPlugins" [colors]="colors2">
+          </canvas>
+        </div>
+
+        <mat-divider *ngIf="averageReviewsRatingsToEmployee.length > 0"></mat-divider>
+        <p *ngIf="numberOfRespondentsByEmployee.length > 0">Number Of Responds on giving reviews by {{user.name}}
+          {{user.surname}}
+          <span>{{overallNumberOfRespondentsByEmployee}}</span>
+        </p>
+        <mat-divider *ngIf="numberOfRespondentsByEmployee.length > 0"></mat-divider>
+        <p *ngIf="numberOfRespondentsByEmployee.length > 0" class="extra-info">Number Of Responds on giving reviews by
+          {{user.name}} {{user.surname}} for other employees</p>
+        <div *ngIf="numberOfRespondentsByEmployee.length > 0" class="chart-wrapper">
+          <canvas baseChart [datasets]="barChartData1" [labels]="barChartLabels1" [options]="barChartOptions"
+            [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors">
+          </canvas>
+        </div>
+        <p *ngIf="reviewsNumberOfRespondsByEmployee.length > 0" class="extra-info">Number Of Responds on giving reviews
+          by {{user.name}} {{user.surname}} during all review periods</p>
+        <div *ngIf="reviewsNumberOfRespondsByEmployee.length > 0" class="chart-wrapper">
+          <canvas baseChart [datasets]="barChartData3" [labels]="barChartLabels3" [options]="barChartOptions2"
+            [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors2">
+          </canvas>
+        </div>
+
+        <mat-divider *ngIf="reviewsNumberOfRespondsByEmployee.length > 0"></mat-divider>
+        <p *ngIf="numberOfRespondentsToEmployee.length > 0">Number Of Respondents for reviewing {{user.name}}
+          {{user.surname}}
+          <span>{{overallNumberOfRespondentsToEmployee}}</span>
+        </p>
+        <mat-divider *ngIf="numberOfRespondentsToEmployee.length > 0"></mat-divider>
+        <p *ngIf="numberOfRespondentsToEmployee.length > 0" class="extra-info">Number Of Respondents on giving reviews
+          to {{user.name}} {{user.surname}} from other employees
+        </p>
+        <div *ngIf="numberOfRespondentsToEmployee.length > 0" class="chart-wrapper">
+          <canvas *ngIf="numberOfRespondentsToEmployee.length > 0" baseChart [datasets]="barChartData2"
+            [labels]="barChartLabels2" [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+            [chartType]="barChartType" [colors]="colors">
+          </canvas>
+        </div>
+        <p *ngIf="reviewsNumberOfRespondentsToEmployee.length > 0" class="extra-info">Number Of Respondents on giving
+          reviews to {{user.name}} {{user.surname}} during all review periods</p>
+        <div *ngIf="reviewsNumberOfRespondentsToEmployee.length > 0" class="chart-wrapper">
+          <canvas baseChart [datasets]="barChartData4" [labels]="barChartLabels4" [options]="barChartOptions2"
+            [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors2">
+          </canvas>
+        </div>
+
+      </div>
+
+    </mat-tab>
+
+    <mat-tab label="Goals">
+
+      <div class="employees-content-goals">
+
+        <table class="table-striped goal-table">
+          <thead>
+            <tr>
+              <th scope="col">Skills</th>
+              <th scope="col">Previous Average Rating</th>
+              <th scope="col">Previous Rating Status</th>
+              <th scope="col">Recent Average Rating</th>
+              <th scope="col">Recent Rating Status</th>
+              <th scope="col">Average Goal</th>
+              <th scope="col">Goal Status</th>
+              <th scope="col">Progress</th>
+            </tr>
+          </thead>
+
+          <tbody *ngFor="let category of categories" [ngSwitch]="category.categoryDescription">
+
+            <tr>
+              <td scope="row">{{category.categoryDescription}}</td>
+
+              <td scope="row">
+                <div *ngSwitchCase="'Communication'">
+                  <div *ngFor="let communicationSkills of communicationSkills;">
+              <td scope="row">
+                {{communicationSkills.answer}}</td>
+      </div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+    <td scope="row">{{interpersonalSkills.answer}}</td>
+  </div>
+</div>
+
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+    <td scope="row">{{problemsolvingSkills.answer}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills of leadershipSkills;">
+    <td scope="row">{{leadershipSkills.answer}}</td>
+  </div>
+</div>
+</td>
+
+<td scope="row">
+  <div *ngSwitchCase="'Communication'">
+    <div *ngFor="let communicationSkills of communicationSkills;">
+<td scope="row">
+  {{previouStatusCom}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+    <td scope="row">{{previouStatusInt}}</td>
+  </div>
+</div>
+
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+    <td scope="row">{{previouStatusPb}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills of leadershipSkills;">
+    <td scope="row">{{previouStatusLe}}</td>
+  </div>
+</div>
+</td>
+
+<td scope="row">
+  <div *ngSwitchCase="'Communication'">
+    <div *ngFor="let communicationSkills2 of communicationSkills2;">
+<td scope="row">
+  {{communicationSkills2.answer}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills2 of interpersonalSkills2;">
+    <td scope="row">{{interpersonalSkills2.answer}}</td>
+  </div>
+</div>
+
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills2 of problemsolvingSkills2;">
+    <td scope="row">{{problemsolvingSkills2.answer}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills2 of leadershipSkills2;">
+    <td scope="row">{{leadershipSkills2.answer}}</td>
+  </div>
+</div>
+</td>
+
+<td scope="row">
+  <div *ngSwitchCase="'Communication'">
+    <div *ngFor="let communicationSkills of communicationSkills;">
+<td scope="row">
+  {{recentStatusCom}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+    <td scope="row">{{recentStatusInt}}</td>
+  </div>
+</div>
+
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+    <td scope="row">{{recentStatusPb}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills of leadershipSkills;">
+    <td scope="row">{{recentStatusLe}}</td>
+  </div>
+</div>
+</td>
+
+<td scope="row">
+  <div *ngSwitchCase="'Communication'">
+    <div *ngFor="let communicationSkills of communicationSkills;">
+<td scope="row">
+  {{comAverageGoalRating | number :'1.0-1'}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+    <td scope="row">{{intAverageGoalRating | number :'1.0-1'}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+    <td scope="row">{{pbAverageGoalRating | number :'1.0-1'}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills of leadershipSkills;">
+    <td scope="row">{{leAverageGoalRating | number :'1.0-1'}}</td>
+  </div>
+</div>
+</td>
+
+<td scope="row">
+  <div *ngSwitchCase="'Communication'">
+    <div *ngFor="let communicationSkills of communicationSkills;">
+<td scope="row" [ngStyle]="{'color': comGoalStatus === 'Achieved' ? '#4b7426' : '	#74264b'}">
+  {{comGoalStatus}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+    <td scope="row" [ngStyle]="{'color': intGoalStatus === 'Achieved' ? '#4b7426' : '	#74264b'}">
+      {{intGoalStatus}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+    <td scope="row" [ngStyle]="{'color': pbGoalStatus === 'Achieved' ? '#4b7426' : '	#74264b'}">
+      {{pbGoalStatus}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills of leadershipSkills;">
+    <td scope="row" [ngStyle]="{'color': leGoalStatus === 'Achieved' ? '#4b7426' : '	#74264b'}">
+      {{leGoalStatus}}</td>
+  </div>
+</div>
+</td>
+
+<td scope="row">
+  <div *ngSwitchCase="'Communication'">
+    <div *ngFor="let communicationSkills of communicationSkills; let i = index">
+<td scope="row" [style.color]="setColorForProgress(comProgress)">
+  {{comProgress}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+    <td scope="row" [style.color]="setColorForProgress(intProgress)">
+      {{intProgress}}
+    </td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+    <td scope="row" [style.color]="setColorForProgress(pbProgress)">
+      {{pbProgress}}
+    </td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills of leadershipSkills;">
+    <td scope="row" [style.color]="setColorForProgress(leProgress)">
+      {{leProgress}}
+    </td>
+  </div>
+</div>
+</td>
+
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<p class="ratingScale-paragraph">
+  Rating Scale
+</p>
+
+<div class="employees-content-goals">
+  <table class="goal-table-2" mat-table [dataSource]="dataSource4">
+
+    <ng-container matColumnDef="range">
+      <th mat-header-cell *matHeaderCellDef>Range</th>
+      <td mat-cell *matCellDef="let element">{{element.range}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="definition">
+      <th mat-header-cell *matHeaderCellDef>Definition</th>
+      <td mat-cell *matCellDef="let element">{{element.definition}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element">{{element.description}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns5"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns5;"></tr>
+
+  </table>
+</div>
+
+</mat-tab>
+
+</mat-tab-group>
+
+</div>

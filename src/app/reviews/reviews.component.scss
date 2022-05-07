@@ -1,0 +1,195 @@
+.reviews-panel {
+    margin: 50px;
+}
+
+.reviews {
+    margin-top: 20px;
+    margin-left: 30px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 95%;
+    height: auto;
+    margin: auto;
+}
+
+.review-content {
+    padding: 50px;
+    text-align: center;
+}
+
+.create-review {
+    background-color: #f4f9ff;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding: 10px;
+    h5 {
+        color: #143c69;
+    }
+    p {
+        color: rgb(105, 105, 105);
+        font-size: 14px;
+    }
+    min-width: fit-content;
+}
+
+.menu-button {
+    font-size: 14px;
+    background-color: #143c69;
+    color: white;
+    width: 9rem;
+    padding: 5px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+i {
+    padding: 5px;
+    .fa fa-plus {
+        color: white;
+    }
+}
+
+table {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: left;
+    th {
+        font-weight: bold;
+        font-size: 14px;
+        text-align: left !important;
+        vertical-align: middle !important;
+    }
+    td {
+        font-weight: normal;
+        font-size: 12px;
+        text-align: left !important;
+        vertical-align: middle !important;
+        
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .table-responsive{
+        min-height: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+::ng-deep.mat-icon-button .mat-button-wrapper>*{
+    vertical-align: middle !important;
+}
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+    padding-left:20px;
+    }
+
+th.mat-sort-header-sorted {
+    color: black;
+    text-align: center !important;
+}
+
+::ng-deep .mat-sort-header-container {
+    display: flex;
+    justify-content: left;
+}
+
+.search {
+    &__form {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+
+        &_field {
+            width: 200px;
+        }
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .search {
+        &__form {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+
+            &_field {
+                height: 100px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 518px) {
+    .search__form_field {
+        margin: 3px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .reviews-panel{
+        margin:20px;
+    }
+}
+
+.filter-button {
+    color: white;
+    background-color: #143c69;
+    width: 100px;
+    padding: 0px;
+    margin: auto;
+    margin-bottom: 20px;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.no-item {
+    h6 {
+        opacity: 0.7;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+.search__form_field mat-label {
+    color: #143c69;
+}
+
+mat-form-field {
+    color: #143c69 !important;
+}
+
+.search__form_field mat-datepicker-toggle {
+    color: #143c69 !important;
+}
+
+mat-paginator {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+::ng-deep .mat-paginator-container{
+    flex-wrap: wrap !important;
+}
+
+@media only screen and (max-width: 600px) {
+    mat-paginator {
+        width: 100%;
+        display: block;
+    }
+}

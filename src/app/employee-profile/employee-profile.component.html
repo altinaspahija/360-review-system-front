@@ -1,0 +1,89 @@
+<div class="main-body">
+
+  <h5 class="tasks-heading-title">Profile</h5>
+
+  <div class="row gutters-sm">
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex flex-column align-items-center text-center">
+            <div class="image-content image-container">
+              <img *ngIf="user[0].profileImage" class="img-fluid rounded-circle" src="{{user[0].profileImage}}" />
+              <img *ngIf="!user[0].profileImage" src="assets/images/userIcon_blue.png"
+                class="img-fluid rounded-circle" />
+            </div>
+            <div class="mt-3">
+              <h6>{{user[0].name}} {{user[0].surname}}</h6>
+              <p class="text-secondary mb-1">{{user[0].departmentTitle}}</p>
+              <p class="text-secondary mb-1">{{user[0].positionTitle}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+
+            <div class="col-sm-3">
+              <h6 class="employee-label">First Name</h6>
+            </div>
+
+            <div class="col-sm-4">
+              <h6 class="employee-info text-secondary">{{user[0].name}}</h6>
+            </div>
+
+          </div>
+
+          <hr>
+
+          <div class="row">
+
+            <div class="col-sm-3">
+              <h6 class="employee-label">Last Name</h6>
+            </div>
+
+            <div class="col-sm-4">
+              <h6 class="employee-info text-secondary">{{user[0].surname}}</h6>
+            </div>
+
+          </div>
+
+          <hr>
+
+          <div class="row">
+
+            <div class="col-sm-3">
+              <h6 class="employee-label">Phone Number</h6>
+            </div>
+
+            <div class="col-sm-4">
+              <h6 class="employee-info text-secondary">{{user[0].phoneNumber}}</h6>
+            </div>
+
+          </div>
+
+          <hr>
+
+          <div class="row">
+
+            <div class="col-sm-3">
+              <h6 class="employee-label">Start Date</h6>
+            </div>
+
+            <div class="col-sm-4">
+              <h6 class="employee-info text-secondary">{{user[0].startDate}}</h6>
+            </div>
+
+          </div>
+
+          <hr>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

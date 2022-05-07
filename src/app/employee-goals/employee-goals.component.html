@@ -1,0 +1,258 @@
+<div class="main-body">
+
+  <h5 class="tasks-heading-title">Goals</h5>
+
+  <div class="employees-content-goals">
+    <div class="table-responsive">
+      <table class="table-striped goal-table">
+        <thead>
+          <tr>
+            <th scope="col">Skills</th>
+            <th scope="col">Previous Average Rating</th>
+            <th scope="col">Previous Rating Status</th>
+            <th scope="col">Recent Average Rating</th>
+            <th scope="col">Recent Rating Status</th>
+            <th scope="col">Average Goal</th>
+            <th scope="col">Goal Status</th>
+            <th scope="col">Progress</th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let category of categories" [ngSwitch]="category.categoryDescription">
+
+          <tr>
+            <td scope="row">{{category.categoryDescription}}</td>
+
+            <td scope="row">
+              <div *ngSwitchCase="'Communication'">
+                <div *ngFor="let communicationSkills of communicationSkills;">
+            <td scope="row">
+              {{communicationSkills.answer}}</td>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'Interpersonal'">
+    <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+      <td scope="row">{{interpersonalSkills.answer}}</td>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'Problem Solving'">
+    <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+      <td scope="row">{{problemsolvingSkills.answer}}</td>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'Leadership'">
+    <div *ngFor="let leadershipSkills of leadershipSkills;">
+      <td scope="row">{{leadershipSkills.answer}}</td>
+    </div>
+  </div>
+  </td>
+
+  <td scope="row">
+    <div *ngSwitchCase="'Communication'">
+      <div *ngFor="let communicationSkills of communicationSkills;">
+  <td scope="row">
+    {{previouStatusCom}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+    <td scope="row">{{previouStatusInt}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+    <td scope="row">{{previouStatusPb}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills of leadershipSkills;">
+    <td scope="row">{{previouStatusLe}}</td>
+  </div>
+</div>
+</td>
+
+<td scope="row">
+  <div *ngSwitchCase="'Communication'">
+    <div *ngFor="let communicationSkills2 of communicationSkills2;">
+<td scope="row">
+  {{communicationSkills2.answer}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills2 of interpersonalSkills2;">
+    <td scope="row">{{interpersonalSkills2.answer}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills2 of problemsolvingSkills2;">
+    <td scope="row">{{problemsolvingSkills2.answer}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills2 of leadershipSkills2;">
+    <td scope="row">{{leadershipSkills2.answer}}</td>
+  </div>
+</div>
+</td>
+
+<td scope="row">
+  <div *ngSwitchCase="'Communication'">
+    <div *ngFor="let communicationSkills of communicationSkills;">
+<td scope="row">
+  {{recentStatusCom}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+    <td scope="row">{{recentStatusInt}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+    <td scope="row">{{recentStatusPb}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills of leadershipSkills;">
+    <td scope="row">{{recentStatusLe}}</td>
+  </div>
+</div>
+</td>
+
+<td scope="row">
+  <div *ngSwitchCase="'Communication'">
+    <div *ngFor="let communicationSkills of communicationSkills;">
+<td scope="row">
+  {{comAverageGoalRating | number :'1.0-1'}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+    <td scope="row">{{intAverageGoalRating | number :'1.0-1'}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+    <td scope="row">{{pbAverageGoalRating | number :'1.0-1'}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills of leadershipSkills;">
+    <td scope="row">{{leAverageGoalRating | number :'1.0-1'}}</td>
+  </div>
+</div>
+</td>
+
+<td scope="row">
+  <div *ngSwitchCase="'Communication'">
+    <div *ngFor="let communicationSkills of communicationSkills;">
+<td scope="row" [ngStyle]="{'color': comGoalStatus === 'Achieved' ? '#4b7426' : '	#74264b'}">
+  {{comGoalStatus}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+    <td scope="row" [ngStyle]="{'color': intGoalStatus === 'Achieved' ? '#4b7426' : '	#74264b'}">
+      {{intGoalStatus}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+    <td scope="row" [ngStyle]="{'color': pbGoalStatus === 'Achieved' ? '#4b7426' : '	#74264b'}">
+      {{pbGoalStatus}}</td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills of leadershipSkills;">
+    <td scope="row" [ngStyle]="{'color': leGoalStatus === 'Achieved' ? '#4b7426' : '	#74264b'}">
+      {{leGoalStatus}}</td>
+  </div>
+</div>
+</td>
+
+<td scope="row">
+  <div *ngSwitchCase="'Communication'">
+    <div *ngFor="let communicationSkills of communicationSkills; let i = index">
+<td scope="row" [style.color]="setColorForProgress(comProgress)">
+  {{comProgress}}</td>
+</div>
+</div>
+
+<div *ngSwitchCase="'Interpersonal'">
+  <div *ngFor="let interpersonalSkills of interpersonalSkills;">
+    <td scope="row" [style.color]="setColorForProgress(intProgress)">
+      {{intProgress}}
+    </td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Problem Solving'">
+  <div *ngFor="let problemsolvingSkills of problemsolvingSkills;">
+    <td scope="row" [style.color]="setColorForProgress(pbProgress)">
+      {{pbProgress}}
+    </td>
+  </div>
+</div>
+
+<div *ngSwitchCase="'Leadership'">
+  <div *ngFor="let leadershipSkills of leadershipSkills;">
+    <td scope="row" [style.color]="setColorForProgress(leProgress)">
+      {{leProgress}}
+    </td>
+  </div>
+</div>
+</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<p class="ratingScale-paragraph">
+  Rating Scale
+</p>
+
+<div class="employees-content-goals">
+  <table class="goal-table-2" mat-table [dataSource]="dataSource4">
+
+    <ng-container matColumnDef="range">
+      <th mat-header-cell *matHeaderCellDef>Range</th>
+      <td mat-cell *matCellDef="let element">{{element.range}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="definition">
+      <th mat-header-cell *matHeaderCellDef>Definition</th>
+      <td mat-cell *matCellDef="let element">{{element.definition}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element">{{element.description}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns4"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns4;"></tr>
+
+  </table>
+</div>
+
+</div>

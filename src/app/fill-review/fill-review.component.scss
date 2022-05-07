@@ -1,0 +1,271 @@
+.fill-review {
+  text-align: center;
+  margin: 50px;
+  margin-top: 30px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 80%;
+  height: max-content;
+  padding: 20px;
+  span {
+    font-style: italic;
+  }
+  img {
+    width: 10%;
+    border-radius: 50%;
+    padding: 10px;
+  }
+}
+
+.review-name {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin: 20px;
+  color: #002b5c;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.review {
+  background-color: white;
+  opacity: 1;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+}
+
+.review-content {
+  padding: 50px;
+  text-align: justify;
+  font-size: small;
+  line-height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-content-2 {
+  text-align: justify;
+  font-size: small;
+  line-height: 30px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.review-content-questions {
+  padding: 50px;
+  text-align: center;
+  color: white;
+}
+
+.fill-review-button {
+  background-color: #002b5c;
+  color: white;
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.fill-review-button:hover {
+  opacity: 0.8;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+mat-stepper {
+  text-align: center;
+}
+
+.mat-step-header {
+  background-color: white;
+}
+
+mat-slider {
+  width: 50% !important;
+}
+
+::ng-deep .mat-slider-thumb {
+  background-color: rgb(233, 193, 16) !important;
+}
+
+::ng-deep .mat-slider-wrapper ::ng-deep .mat-slider-thumb {
+  height: 10px !important;
+  border: none;
+  background-color: transparent !important;
+}
+
+::ng-deep .mat-slider-thumb-label {
+  background-image: url("../../assets/images/star.png");
+  background-position: center !important;
+  background-size: cover !important;
+  background-color: transparent !important;
+  height: 40px !important;
+  width: 40px !important;
+  background-color: transparent !important;
+  transform: rotate(70deg) !important;
+  border-radius: 100% 100% 0 !important;
+  right: -23.5px !important;
+}
+
+::ng-deep .mat-slider-track-fill {
+  background-image: url("../../assets/images/star.png");
+  background-position: center !important;
+  background-size: cover !important;
+  height: 100% !important;
+  height: 40px !important;
+  width: 40px !important;
+  background-color: rgb(233, 193, 16) !important;
+}
+
+::ng-deep .mat-slider-thumb-label-text {
+  opacity: 1 !important;
+  color: white !important;
+  font-size: 11px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  align-content: center !important;
+  vertical-align: middle !important;
+  text-align: center;
+  margin-left: 2px;
+  margin-top: 5px;
+  font-size: 9.5px !important;
+  transform: rotate(-70deg) !important;
+}
+
+::ng-deep .mat-slider-wrapper {
+  height: 10px;
+}
+
+::ng-deep .mat-slider-wrapper ::ng-deep .mat-slider-track-wrapper {
+  height: 10px;
+  background-color: rgb(233, 193, 16);
+}
+
+::ng-deep .mat-slider-wrapper ::ng-deep .mat-slider-track-wrapper ::ng-deep .mat-slider-track-background {
+  height: 10px;
+  background-color: rgb(233, 193, 16);
+}
+
+::ng-deep .mat-slider-wrapper ::ng-deep .mat-slider-track-wrapper ::ng-deep .mat-slider-track-fill {
+  height: 10px;
+  background-color: rgb(233, 193, 16);
+}
+
+.slider {
+  margin-top: 10px;
+  justify-content: center !important;
+  align-items: center !important;
+  align-content: center !important;
+  text-align: center !important;
+  display: flex;
+}
+
+ngb-rating {
+  font-size: 30px;
+  color: rgb(233, 193, 16);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: center !important;
+  align-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.ngb-rating-label {
+  margin-bottom: 20px;
+  p {
+    color: rgb(105, 105, 105) !important;
+    font-size: 17px;
+  }
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.star-rating {
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+}
+
+.goal-table {
+  margin-top: 20px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100%;
+  text-align: left;
+  padding: 20px !important;
+  border-collapse: collapse;
+  border: 1px solid #143c69;
+  th {
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left !important;
+    vertical-align: middle !important;
+    padding: 30px !important;
+    background-color: #143c69;
+    color: white;
+  }
+  td {
+    font-weight: normal;
+    font-size: 11px;
+    text-align: left !important;
+    vertical-align: middle !important;
+    padding: 10px 20px !important;
+  }
+  .mat-header-cell {
+    padding: 10px !important;
+}
+  thead th {
+    border-bottom: 1px solid #000;
+  }
+}
+
+::ng-deep th.mat-header-cell {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+::ng-deep th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
+  padding: 20px;
+}
+
+.review-rating-content {
+  justify-content: center !important;
+  text-align: center;
+  display: flex;
+  margin-top: -40px;
+}
+
+.review-content-complete {
+  padding-top: 50px;
+  text-align: justify;
+  font-size: small;
+  line-height: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.review-content-complete-button {
+  text-align: justify;
+  font-size: small;
+  line-height: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

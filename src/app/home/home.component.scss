@@ -1,0 +1,283 @@
+.home {
+    margin: 50px;
+}
+
+.tasks-heading-title {
+    text-align: center;
+    color: rgba(39, 36, 36, 0.8);
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 40px;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+
+.tasks-heading {
+    text-align: center;
+    color: rgba(39, 36, 36, 0.8);
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 10px;
+    margin-top: -20px;
+}
+
+.create-review {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 0;
+    margin-left: 5px;
+}
+
+.menu-button:hover {
+    opacity: 0.9;
+}
+
+i {
+    padding: 5px;
+    .fa fa-plus {
+        color: white !important;
+    }
+}
+
+.column {
+    width: 30%;
+    padding: 0 10px;
+    margin-top: 20px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 700px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+        height: auto;
+    }
+    .row {
+        flex-direction: column;
+    }
+    .table-responsive {
+        min-height: 400px;
+        margin-bottom: 30px;
+    }
+    .filter-button-left {
+        margin-left: 0px !important;
+    }
+    .create-review {
+        margin-top: 10px;
+        margin-left: 12px;
+    }
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: white;
+    h4,
+    h5 {
+        color: rgba(39, 36, 36, 0.8);
+        font-weight: normal;
+        padding: 10px;
+    }
+    font-family: Arial, Helvetica, sans-serif;
+    transition: transform 0.5s;
+    min-width: 130px;
+    height: 160px;
+}
+
+.card:hover {
+    transform: scale(1.08);
+}
+
+.menu-button {
+    font-size: 14px;
+    background-color: #143c69;
+    color: white;
+    width: 9rem;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+table {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    th {
+        font-weight: bold;
+        font-size: 14px;
+        text-align: left !important;
+        vertical-align: middle !important;
+    }
+    td {
+        font-weight: normal;
+        font-size: 12px;
+        text-align: left !important;
+        vertical-align: middle !important;
+    }
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    padding-left: 20px;
+}
+
+mat-paginator {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+@media only screen and (max-width: 600px) {
+    mat-paginator {
+        width: 100%;
+        display: block;
+    }
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+::ng-deep .mat-sort-header-container {
+    display: flex;
+    justify-content: left;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+mat-divider {
+    opacity: 0.8;
+}
+
+.search {
+    &__form {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: -40px;
+
+        &_field {
+            width: 300px;
+            margin: 0 5px 3px 8px;
+        }
+    }
+}
+
+.search__form_field mat-label {
+    color: #143c69;
+}
+
+mat-form-field {
+    color: #143c69 !important;
+}
+
+.search__form_field mat-datepicker-toggle {
+    color: #143c69 !important;
+}
+
+.card-task {
+    text-align: left;
+}
+
+.home-button {
+    background-color: white;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.home-button:hover {
+    opacity: 0.8;
+}
+
+.no-item {
+    h6 {
+        opacity: 0.7;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #143c69 !important;
+    border-width: 2px;
+}
+
+::ng-deep .mat-datepicker-content-touch .mat-datepicker-content-container {
+    width: 50vw;
+}
+
+@media (orientation: portrait) {
+    .mat-datepicker-content-touch .mat-datepicker-content-container {
+        width: 50vw;
+    }
+}
+
+.filter-button {
+    color: white;
+    background-color: #143c69;
+    width: 200px;
+    padding: 0px;
+    margin-top: 40px;
+}
+
+.filter-button-left {
+    color: white;
+    background-color: #143c69;
+    width: 200px;
+    padding: 0px;
+    margin-top: 40px;
+    margin-left: 15px;
+}
+
+@media screen and (min-width: 1290px) {
+    .search {
+        &__form {
+            &_field {
+                width: 200px;
+            }
+        }
+    }
+    .filter-button {
+        margin: auto;
+        margin-top: 40px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}
+
+::ng-deep .mat-focus-indicator filter-button mat-raised-button mat-button-base {
+    margin-left: 0px;
+}
+
+.fill-button {
+    color: #143c69;
+    display: flex;
+    padding: 0;
+    border: none;
+    background: none;
+    text-align: center;
+    vertical-align: middle;
+}

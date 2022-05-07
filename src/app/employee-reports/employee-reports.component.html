@@ -1,0 +1,89 @@
+<div class="main-body">
+
+  <h5 class="tasks-heading-title">Reports</h5>
+
+  <div class="reports-content">
+    <p>Reviews created for {{user.name}} {{user.surname}}<span>{{countReviews}}</span></p>
+    <mat-divider></mat-divider>
+    <p>Reviews given from {{user.name}} {{user.surname}} <span>{{countReviewsBy}}</span></p>
+    <mat-divider></mat-divider>
+    <p>Reviews given to {{user.name}} {{user.surname}} <span>{{countReviewsTo}}</span></p>
+    <mat-divider></mat-divider>
+
+    <p *ngIf="averageRatingsBy.length > 0">Average Review Rating given from {{user.name}} {{user.surname}}<span>{{overAllaverageRatingBy| number
+        :'1.0-1'}}</span></p>
+    <mat-divider *ngIf="averageRatingsBy.length > 0"></mat-divider>
+    <p *ngIf="averageRatingsBy.length > 0" class="extra-info">Average Reviews Ratings given from {{user.name}} {{user.surname}}</p>
+    <div *ngIf="averageRatingsBy.length > 0" class="chart-wrapper">
+      <canvas baseChart [datasets]="lineChartData1" [labels]="lineChartLabels1" [options]="lineChartOptions"
+        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins"
+        [colors]="colors">
+      </canvas>
+    </div>
+    <p *ngIf="averageReviewsRatingsByEmployee.length > 0" class="extra-info">Average Reviews Ratings given from {{user.name}} {{user.surname}} during all reviews</p>
+    <div *ngIf="averageReviewsRatingsByEmployee.length > 0" class="chart-wrapper">
+      <canvas baseChart [datasets]="lineChartData3" [labels]="lineChartLabels3" [options]="lineChartOptions2"
+        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins"
+        [colors]="colors2">
+      </canvas>
+    </div>
+
+    <mat-divider *ngIf="averageReviewsRatingsByEmployee.length > 0"></mat-divider>
+    <p *ngIf="averageRatingsTo.length > 0">Average Review Rating given to {{user.name}} {{user.surname}} <span>{{overAllaverageRatingTo| number
+        :'1.0-1'}}</span></p>
+    <mat-divider *ngIf="averageRatingsTo.length > 0"></mat-divider>
+    <p *ngIf="averageRatingsTo.length > 0" class="extra-info">Average Reviews Ratings given to {{user.name}} {{user.surname}}</p>
+    <div *ngIf="averageRatingsTo.length > 0" class="chart-wrapper">
+      <canvas baseChart [datasets]="lineChartData2" [labels]="lineChartLabels2" [options]="lineChartOptions"
+        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins"
+        [colors]="colors">
+      </canvas>
+    </div>
+    <p *ngIf="averageReviewsRatingsToEmployee.length > 0" class="extra-info">Average Reviews Ratings given to {{user.name}} {{user.surname}} during all review periods</p>
+    <div *ngIf="averageReviewsRatingsToEmployee.length > 0" class="chart-wrapper">
+      <canvas baseChart [datasets]="lineChartData4" [labels]="lineChartLabels4" [options]="lineChartOptions2"
+        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins"
+        [colors]="colors2">
+      </canvas>
+    </div>
+
+    <mat-divider *ngIf="averageReviewsRatingsToEmployee.length > 0"></mat-divider>
+    <p *ngIf="numberOfRespondentsByEmployee.length > 0">Number Of Responds on giving reviews by {{user.name}} {{user.surname}}
+      <span>{{overallNumberOfRespondentsByEmployee}}</span>
+    </p>
+    <mat-divider *ngIf="numberOfRespondentsByEmployee.length > 0"></mat-divider>
+    <p *ngIf="numberOfRespondentsByEmployee.length > 0" class="extra-info">Number Of Responds on giving reviews by {{user.name}} {{user.surname}} for other employees</p>
+    <div *ngIf="numberOfRespondentsByEmployee.length > 0" class="chart-wrapper">
+      <canvas baseChart [datasets]="barChartData1" [labels]="barChartLabels1" [options]="barChartOptions"
+        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors">
+      </canvas>
+    </div>
+    <p *ngIf="reviewsNumberOfRespondsByEmployee.length > 0" class="extra-info">Number Of Responds on giving reviews by {{user.name}} {{user.surname}} during all review periods</p>
+    <div *ngIf="reviewsNumberOfRespondsByEmployee.length > 0" class="chart-wrapper">
+      <canvas baseChart [datasets]="barChartData3" [labels]="barChartLabels3" [options]="barChartOptions2"
+        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors2">
+      </canvas>
+    </div>
+
+    <mat-divider *ngIf="reviewsNumberOfRespondsByEmployee.length > 0"></mat-divider>
+    <p *ngIf="numberOfRespondentsToEmployee.length > 0">Number Of Respondents for reviewing {{user.name}} {{user.surname}}
+      <span>{{overallNumberOfRespondentsToEmployee}}</span>
+    </p>
+    <mat-divider *ngIf="numberOfRespondentsToEmployee.length > 0"></mat-divider>
+    <p *ngIf="numberOfRespondentsToEmployee.length > 0" class="extra-info">Number Of Respondents on giving reviews to {{user.name}} {{user.surname}} from other employees
+    </p>
+    <div *ngIf="numberOfRespondentsToEmployee.length > 0" class="chart-wrapper">
+      <canvas *ngIf="numberOfRespondentsToEmployee.length > 0" baseChart [datasets]="barChartData2" [labels]="barChartLabels2" [options]="barChartOptions"
+        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors">
+      </canvas>
+    </div>
+    <p *ngIf="reviewsNumberOfRespondentsToEmployee.length > 0" class="extra-info">Number Of Respondents on giving reviews to {{user.name}} {{user.surname}} during all review periods</p>
+    <div *ngIf="reviewsNumberOfRespondentsToEmployee.length > 0" class="chart-wrapper">
+      <canvas baseChart [datasets]="barChartData4" [labels]="barChartLabels4" [options]="barChartOptions2"
+        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors2">
+      </canvas>
+    </div>
+
+  </div>
+
+</div>
